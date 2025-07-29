@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Fashion Accessories Page</title>
+    <style>
+    body {
+        margin: 0;
+        font-family: Georgia, Garamond, serif;
+        font-size: 18px;
+        background-color: #fff0f5;
+        color: #333;
+    }
+    .header {
+        background-color: #800080;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        text-shadow: 2px 2px 5px #c71585;
+    }
+    .profile-pic {
+        width: 100px;
+        border-radius: 50%;
+        border: 4px solid white;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    nav a {
+        margin: 10px;
+        padding: 10px;
+        text-decoration: none;
+        font-weight: bolder;
+        color: #000;
+        background-color: #fff;
+    }
+    a:hover { background-color: lightgreen; }
+    a:active { background-color: hotpink; }
+    .tabs {
+        display: flex;
+        background-color: #c0c0ff;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .tabs div {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        border-right: 1px solid white;
+    }
+    .tabs div:last-child {
+        border-right: none;
+    }
+    .info-box {
+        background-color: #d0f0ff;
+        padding: 20px;
+        text-align: justify;
+        margin: 20px;
+        border-radius: 8px;
+    }
+    .main-content {
+        margin: 20px;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 2px solid #ccc;
+        letter-spacing: 1px;
+        text-align: justify;
+    }
+    .main-content h2 {
+        text-align: center;
+        text-decoration: underline;
+        font-style: italic;
+    }
+    .categories {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+        background-color: #fff;
+    }
+    .categories img {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border-radius: 10px;
+    }
+    .categories p {
+        text-align: center;
+        font-weight: bold;
+    }
+    .testimonial {
+        background-color: #e0e0ff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .card {
+        background-color: white;
+        width: 250px;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 0 5px gray;
+    }
+    .card img {
+        width: 60px;
+        margin-bottom: 10px;
+    }
+    .multicol-section {
+        margin: 20px;
+        padding: 20px;
+        background-color: #e6e6fa;
+    }
+    .multicol {
+        column-count: 2;
+        column-gap: 40px;
+    }
+    .multicol p {
+        margin-bottom: 15px;
+    }
+    footer {
+        background-color: #222;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+    .multicol {
+        column-count: 1;
+    }
+    .main-content, .multicol-section, .info-box {
+        margin: 10px;
+    }
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+    .tabs div {
+        flex: 100%;
+        border-right: none;
+        border-bottom: 1px solid white;
+    }
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <img src="./ass25.jpeg" alt="Profile" class="profile-pic" />
+    <h2>Fashion Accessories Page</h2>
+    <div>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/facebook.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/twitter.png"/></a>
+        <a href="#"><img src="https://img.icons8.com/ios-filled/25/instagram-new.png"/></a>
+    </div>
+</div>
+<div class="tabs">
+    <div>Personal</div>
+    <div>Latest</div>
+    <div>Gallery</div>
+    <div>Contact</div>
+</div>
+<div class="info-box">
+    <p>
+        Discover exclusive accessories that complement your everyday and party look. From elegant watches to classy handbags, everything you need to complete your outfit is right here.
+    </p>
+</div>
+<section class="main-content">
+    <h2>Welcome to Our Accessories Hub</h2>
+    <p>
+        Explore the latest trends in bags, watches, earrings, and more. Our fashion accessories are carefully curated to match your personal style. Designed for elegance and crafted with care, each item adds a unique charm to your look.
+    </p>
+</section>
+<div class="categories">
+    <div>
+        <img src="./ass26.jpeg" alt="Watches"/>
+    <p>Watches</p>
+    </div>
+    <div>
+        <img src="./ass28.jpeg" alt="Handbags"/>
+        <p>Handbags</p>
+    </div>
+    <div>
+        <img src="./ass30.jpeg" alt="Jewelry"/>
+        <p>Jewelry</p>
+    </div>
+    <div>
+        <img src="./ass32.jpeg" alt="Sunglasses"/>
+        <p>Sunglasses</p>
+    </div>
+</div>
+<div class="testimonial">
+    <div class="card">
+        <img src="./ass27.jpeg" alt="Watch">
+        <h3>Elegant Watches</h3>
+        <p>Timeless pieces for any occasion. Choose from classic, digital or modern styles.</p>
+</div>
+    <div class="card">
+        <img src="./ass29.jpeg" alt="Bag">
+        <h3>Stylish Bags</h3>
+        <p>Perfect handbags crafted to match your unique personality and trend.</p>
+    </div>
+    <div class="card">
+        <img src="./ass31.jpeg" alt="Necklace">
+        <h3>Jewelry Sets</h3>
+        <p>Beautiful designs to elevate your evening or wedding style effortlessly.</p>
+    </div>
+    </div>
+<section class="multicol-section">
+    <h2 style="text-align:center;">Our Top Picks</h2>
+    <div class="multicol">
+        <p>Elegant Wrist Watches for Every Occasion</p>
+        <p>Designer Handbags with Modern Flair</p>
+        <p>Colorful Scarves for All Seasons</p>
+        <p>Handmade Earrings and Necklaces</p>
+        <p>Bold Belts to Complete Your Look</p>
+        <p>Luxury Sunglasses for Sun & Style</p>
+    </div>
+</section>
+<footer>
+    Your address<br />
+    &copy; 2025. (Register Number: URK23CS1283)
+</footer>
+</body>
+</html>
