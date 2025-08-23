@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Accessories</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f4f4f4;
+    }
+    h1, h2 {text-align: center;
+        margin: 15px 0;
+    }
+    .navbar {display: flex;
+        justify-content: center;
+        background: #222;
+    }
+    .navbar button {
+        padding: 12px 25px;
+        border: none;
+        background: #222;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .navbar button.active, .navbar button:hover {
+        background: #ff4081;
+    }
+    .section {
+        display: none;
+    }
+    .section.active {
+        display: block;
+    }
+    .tabs {
+        display: flex;
+        background: #222;
+        margin-top: 10px;
+    }
+    .tabs button {
+        flex: 1;
+        padding: 14px;
+        cursor: pointer;
+        background: #222;
+        color: white;
+        border: none;
+    }
+    .tabs button:hover {
+        background: #444;
+    }
+    .tabs button.active {
+        background: #ff4081;
+    }
+    .content {
+        display: none;
+        padding: 20px;
+        background: white;
+        min-height: 400px;
+    }
+    .content.active {
+        display: block;
+    }
+    .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        margin: 0;
+    }
+    .product img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+    .card {
+        background: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);}
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    .card h3 {
+        margin: 10px 0;
+    }
+    .card p {
+        color: #777;
+        margin: 5px 0;
+    }
+    .btn {
+        background: #ff4081;
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .btn:hover {
+        background: #e91e63;
+    }
+    .result {
+        margin-top: 10px;
+        font-weight: bold;
+        color: green;
+        text-align:center;
+    }
+    .container {
+        display: none;
+        max-width: 450px;
+        margin: 30px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);}
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+    }
+    button.calc-btn {
+        background: #ff4081;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+    }
+    .calc-btn:hover {
+        background:#e91e63;
+    }
+    .result-box {
+        margin-top: 15px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+</head>
+<body>
+    <h1>✨ Fashion Accessories✨</h1>
+    <div class="navbar">
+        <button onclick="openSection('fashion')" class="active">Fashion Store</button>
+        <button onclick="openSection('programs')">Info</button>
+    </div>
+    <div id="fashion" class="section active">
+    <h2>👜 Fashion Accessories Store</h2>
+    <div class="tabs">
+        <button class="tablink active" onclick="openTab(event,'bags')">Handbags</button>
+        <button class="tablink" onclick="openTab(event,'watches')">Watches</button>
+        <button class="tablink" onclick="openTab(event,'sunglasses')">Sunglasses</button>
+        <button class="tablink" onclick="openTab(event,'jewelry')">Jewelry</button>
+    </div>
+    <div id="bags" class="content active">
+    <div class="products">
+        <div class="card">
+            <img src="ass9.webp" alt="Handbag">
+            <h3>Luxury Handbag</h3>
+            <p>Price: ₹2500</p>
+            <button class="btn" onclick="addToCart('Luxury Handbag')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="ass21.jpeg" alt="Handbag">
+            <h3>Stylish Tote Bag</h3>
+            <p>Price: ₹1800</p>
+            <button class="btn" onclick="addToCart('Stylish Tote Bag')">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+    <div id="watches" class="content">
+        <div class="products">
+        <div class="card">
+            <img src="ass22.jpeg" alt="Watch">
+            <h3>Classic Watch</h3>
+            <p>Price: ₹3500</p>
+            <button class="btn" onclick="addToCart('Classic Watch')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="ass27.jpeg" alt="Watch">
+            <h3>Stylish Watch</h3>
+            <p>Price: ₹4200</p>
+            <button class="btn" onclick="addToCart('Smart Digital Watch')">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+    <div id="sunglasses" class="content">
+        <div class="products">
+        <div class="card">
+            <img src="ass32.jpeg" alt="Sunglasses">
+            <h3>Stylish Sunglasses</h3>
+            <p>Price: ₹1200</p>
+            <button class="btn" onclick="addToCart('Stylish Sunglasses')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="ass35.jpeg" alt="Sunglasses">
+            <h3>Polarized Shades</h3>
+            <p>Price: ₹2000</p>
+            <button class="btn" onclick="addToCart('Polarized Shades')">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+    <div id="jewelry" class="content">
+        <div class="products">
+        <div class="card">
+            <img src="ass4.jpg" alt="Necklace">
+            <h3>Elegant Necklace</h3>
+            <p>Price: ₹2200</p>
+            <button class="btn" onclick="addToCart('Elegant Necklace')">Add to Cart</button>
+        </div>
+        <div class="card">
+            <img src="ass24.jpeg" alt="Ring">
+            <h3>Diamond Ring</h3>
+            <p>Price: ₹5000</p>
+            <button class="btn" onclick="addToCart('Diamond Ring')">Add to Cart</button>
+        </div>
+    </div>
+    </div>
+
+    <div id="cartResult" class="result"></div>
+</div>
+    <div id="programs" class="section">
+    <div class="navbar">
+        <button onclick="openTabProg('calc')" class="active">Calculator</button>
+        <button onclick="openTabProg('bmi')">BMI</button>
+        <button onclick="openTabProg('currency')">Currency</button>
+        <button onclick="openTabProg('emi')">Loan EMI</button>
+    </div>
+    <div id="calc" class="container" style="display:block;">
+    <h2>Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+        <select id="operation">
+        <option value="add">Add (+)</option>
+        <option value="sub">Subtract (-)</option>
+        <option value="mul">Multiply (×)</option>
+        <option value="div">Divide (÷)</option>
+    </select>
+    <button class="calc-btn" onclick="calculate()">Calculate</button>
+    <div class="result-box" id="calcResult"></div>
+    </div>
+    <div id="bmi" class="container">
+        <h2>BMI Calculator</h2>
+        <input type="number" id="weight" placeholder="Enter weight (kg)">
+        <input type="number" id="height" placeholder="Enter height (m)">
+        <button class="calc-btn" onclick="calculateBMI()">Calculate BMI</button>
+        <div class="result-box" id="bmiResult"></div>
+    </div>
+    <div id="currency" class="container">
+    <h2>Currency Converter</h2>
+        <input type="number" id="amount" placeholder="Enter amount">
+        <select id="fromCurrency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <select id="toCurrency">
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+    </select>
+    <button class="calc-btn" onclick="convertCurrency()">Convert</button>
+    <div class="result-box" id="currencyResult"></div>
+    </div>
+    <div id="emi" class="container">
+        <h2>Loan EMI Calculator</h2>
+        <input type="number" id="loan" placeholder="Loan Amount (₹)">
+        <input type="number" id="rate" placeholder="Annual Interest Rate (%)">
+        <input type="number" id="tenure" placeholder="Tenure (Years)">
+        <button class="calc-btn" onclick="calculateEMI()">Calculate EMI</button>
+        <div class="result-box" id="emiResult"></div>
+    </div>
+    </div>
+    <script>
+    function openSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        document.querySelectorAll('.navbar button').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+    function openTab(evt, id) {
+        document.querySelectorAll(".content").forEach(c => c.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+        document.querySelectorAll(".tablink").forEach(t => t.classList.remove("active"));
+        evt.currentTarget.classList.add("active");
+    }
+    function addToCart(item) {
+        document.getElementById("cartResult").innerHTML = item + " added to your cart 🛒";
+    }
+    function openTabProg(tabId) {
+        document.querySelectorAll('.container').forEach(c => c.style.display = 'none');
+        document.getElementById(tabId).style.display = 'block';
+        event.target.parentElement.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+        event.target.classList.add("active");
+    }
+    function calculate() {
+        let n1 = parseFloat(document.getElementById('num1').value);
+        let n2 = parseFloat(document.getElementById('num2').value);
+        let op = document.getElementById('operation').value;
+        let result = 0;
+        if (op === 'add') result = n1 + n2;
+        else if (op === 'sub') result = n1 - n2;
+      else if (op === 'mul') result = n1 * n2;
+        else if (op === 'div') result = n2 !== 0 ? n1 / n2 : "Error (Divide by 0)";
+        document.getElementById('calcResult').innerText = "Result: " + result;
+    }
+    function calculateBMI() {
+        let w = parseFloat(document.getElementById('weight').value);
+        let h = parseFloat(document.getElementById('height').value);
+      let bmi = (w / (h * h)).toFixed(2);
+        let status = "";
+        if (bmi < 18.5) status = "Underweight";
+        else if (bmi < 25) status = "Normal";
+        else if (bmi < 30) status = "Overweight";
+        else status = "Obese";
+        document.getElementById('bmiResult').innerText = `BMI: ${bmi} (${status})`;
+    }
+    const rates = {
+        "INR": { "USD": 0.012, "EUR": 0.011, "GBP": 0.0095 },
+        "USD": { "INR": 84, "EUR": 0.92, "GBP": 0.79 },
+        "EUR": { "INR": 91, "USD": 1.09, "GBP": 0.86 },
+        "GBP": { "INR": 106, "USD": 1.26, "EUR": 1.16 }
+    };
+    function convertCurrency() {
+        let amt = parseFloat(document.getElementById('amount').value);
+        let from = document.getElementById('fromCurrency').value;
+        let to = document.getElementById('toCurrency').value;
+        if (from === to) {
+        document.getElementById('currencyResult').innerText = `Converted Amount: ${amt} ${to}`;
+        return;
+    }
+      let result = amt * rates[from][to];
+        document.getElementById('currencyResult').innerText = `Converted Amount: ${result.toFixed(2)} ${to}`;
+    }
+    function calculateEMI() {
+        let P = parseFloat(document.getElementById('loan').value);
+        let R = parseFloat(document.getElementById('rate').value) / 12 / 100;
+        let N = parseInt(document.getElementById('tenure').value) * 12;
+        let emi = (P * R * Math.pow(1+R, N)) / (Math.pow(1+R, N) - 1);
+    document.getElementById('emiResult').innerText = `Monthly EMI: ₹${emi.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>
