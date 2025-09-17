@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Accessories Budget Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .box { display: inline-block; padding: 20px; margin: 10px; border-radius: 10px; color: #fff; font-weight: bold; }
+        .rent { background: #0d47a1; }
+        .accessories { background: #2e7d32; }
+        .emergency { background: #00695c; }
+        .saving { background: #ad1457; }
+    </style>
+</head>
+<body>
+
+    <h1>Fashion Accessories Budget Calculator</h1>
+    <p>Enter Amount that you want to Manage</p>
+    <input type="number" id="totalAmount" value="15000"><br><br>
+
+    <p>How would you like to divide your money?</p>
+    Room Rent(%) <input type="number" id="rentPercent" value="35">
+    Accessories(%) <input type="number" id="accessPercent" value="15">
+    Emergency(%) <input type="number" id="emergencyPercent" value="20">
+    Saving(%) <input type="number" id="savingPercent" value="30"><br><br>
+
+    <button onclick="calculateBudget()">Evaluate My Money</button>
+
+    <div>
+        <div class="box rent" id="rentBox">Room Rent Rs.0.00</div>
+        <div class="box accessories" id="accessBox">Accessories Rs.0.00</div>
+        <div class="box emergency" id="emergencyBox">Emergency Rs.0.00</div>
+        <div class="box saving" id="savingBox">Saving Rs.0.00</div>
+    </div>
+
+    <script>
+        function calculateBudget() {
+            let total = parseFloat(document.getElementById("totalAmount").value);
+
+            let rentP = parseFloat(document.getElementById("rentPercent").value);
+            let accessP = parseFloat(document.getElementById("accessPercent").value);
+            let emergencyP = parseFloat(document.getElementById("emergencyPercent").value);
+            let savingP = parseFloat(document.getElementById("savingPercent").value);
+
+            // Calculate amounts
+            let rentAmt = (total * rentP) / 100;
+            let accessAmt = (total * accessP) / 100;
+            let emergencyAmt = (total * emergencyP) / 100;
+            let savingAmt = (total * savingP) / 100;
+
+            // Display results
+            document.getElementById("rentBox").innerHTML = "Room Rent Rs." + rentAmt.toFixed(2);
+            document.getElementById("accessBox").innerHTML = "Accessories Rs." + accessAmt.toFixed(2);
+            document.getElementById("emergencyBox").innerHTML = "Emergency Rs." + emergencyAmt.toFixed(2);
+            document.getElementById("savingBox").innerHTML = "Saving Rs." + savingAmt.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
