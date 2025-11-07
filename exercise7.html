@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan Eligibility Checker</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      background-color: #f2f5f7;
+    }
+    .container {
+      max-width: 600px;
+      background: #fff;
+      margin-top: 60px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .eligible {
+      color: green;
+      font-weight: bold;
+    }
+    .not-eligible {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center mb-4">Loan Eligibility Checker</h2>
+
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter your name" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Age</label>
+      <input type="number" class="form-control" id="age" placeholder="Enter your age" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Monthly Salary</label>
+      <input type="number" class="form-control" id="salary" placeholder="Enter monthly salary" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Existing EMI / Debts</label>
+      <input type="number" class="form-control" id="existingEmi" placeholder="Enter existing EMI" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Loan Amount Requested</label>
+      <input type="number" class="form-control" id="loanAmount" placeholder="Enter requested loan amount" />
+    </div>
+
+    <div class="d-grid">
+      <button class="btn btn-primary" onclick="checkEligibility()">Check Loan Eligibility</button>
+    </div>
+
+    <div id="result" class="mt-4 text-center"></div>
+  </div>
+
+  <script>
+    function checkEligibility() {
+      const name = document.getElementById("name").value.trim();
+      const age = parseInt(document.getElementById("age").value);
+      const salary = parseFloat(document.getElementById("salary").value);
+      const existingEmi = parseFloat(document.getElementById("existingEmi").value);
+      const loanAmount = parseFloat(document.getElementById("loanAmount").value);
+      const resultDiv = document.getElementById("result");
+
+      if (!name || !age || !salary || !existingEmi || !loanAmount) {
+        resultDiv.innerHTML = `<p class='not-eligible'>❌ All fields are required.</p>`;
+        return;
+      }
+
+      if (age < 21 || age > 60) {
+        resultDiv.innerHTML = `<p class='not-eligible'>❌ Age must be between 21 and 60.</p>`;
+        return;
+      }
+
+      if (loanAmount > 10 * salary) {
+        resultDiv.innerHTML = `<p class='not-eligible'>❌ Loan amount exceeds 10× monthly salary.</p>`;
+        return;
+      }
+
+      const proposedEmi = loanAmount * 0.1; // Assume proposed EMI = 10% of loan
+      const dti = ((existingEmi + proposedEmi) / salary) * 100;
+
+      if (dti > 60) {
+        resultDiv.innerHTML = `<p class='not-eligible'>❌ DTI too high (${dti.toFixed(2)}%).</p>`;
+      } else {
+        resultDiv.innerHTML = `<p class='eligible'>✅ ${name} is Eligible for the Loan!</p>`;
+      }
+    }
+  </script>
+</body>
+</html>
